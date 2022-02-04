@@ -74,8 +74,25 @@ public class Calc {
 
 			switch (command) {
 			case "Action":
-				System.out.println("My first event");
-				JOptionPane.showMessageDialog(null, txtNum1.getText());
+				if (txtNum1.getText() != null && txtNum2.getText() != null && op.getSelectedItem() != null) {
+					Integer num1 =Integer.valueOf(txtNum1.getText());
+					Integer num2 =Integer.valueOf(txtNum2.getText());
+					
+					Integer result = 0;
+					
+					String opSelected = op.getSelectedItem().toString();
+					
+					if (opSelected == "+") {
+						result = num1 + num2;
+					} else if (opSelected == "-" ) {
+						result = num1 - num2;
+					} else if (opSelected == "/") {
+						result = num1 / num2;
+					} else if (opSelected == "*") {
+						result = num1 * num2;
+					}
+					JOptionPane.showMessageDialog(null, txtNum1.getText() + "" + op.getSelectedItem() + ""+ txtNum2.getText() + "=" + result.toString());
+				}
 				break;
 			default:
 				System.out.println("Invalid Action");
